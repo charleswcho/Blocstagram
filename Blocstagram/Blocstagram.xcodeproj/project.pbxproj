@@ -22,7 +22,7 @@
 		BA81B48C1B4D986A00D96E1E /* 8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = BA81B4821B4D986A00D96E1E /* 8.JPG */; };
 		BA81B48D1B4D986A00D96E1E /* 9.JPG in Resources */ = {isa = PBXBuildFile; fileRef = BA81B4831B4D986A00D96E1E /* 9.JPG */; };
 		BA81B48E1B4D986A00D96E1E /* 10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = BA81B4841B4D986A00D96E1E /* 10.JPG */; };
-		BA81B4911B4D98A600D96E1E /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA81B4901B4D98A600D96E1E /* ImagesTableViewController.m */; };
+		BA81B4931B4DD94400D96E1E /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA81B4921B4DD94400D96E1E /* ImagesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,7 @@
 		BA81B4831B4D986A00D96E1E /* 9.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.JPG; sourceTree = "<group>"; };
 		BA81B4841B4D986A00D96E1E /* 10.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.JPG; sourceTree = "<group>"; };
 		BA81B48F1B4D98A600D96E1E /* ImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewController.h; sourceTree = "<group>"; };
-		BA81B4901B4D98A600D96E1E /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewController.m; sourceTree = "<group>"; };
+		BA81B4921B4DD94400D96E1E /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 				BA81B4581B4D955600D96E1E /* AppDelegate.h */,
 				BA81B4591B4D955600D96E1E /* AppDelegate.m */,
 				BA81B48F1B4D98A600D96E1E /* ImagesTableViewController.h */,
-				BA81B4901B4D98A600D96E1E /* ImagesTableViewController.m */,
+				BA81B4921B4DD94400D96E1E /* ImagesTableViewController.m */,
 				BA81B4611B4D955600D96E1E /* Images.xcassets */,
 				BA81B4631B4D955600D96E1E /* LaunchScreen.xib */,
 				BA81B4541B4D955600D96E1E /* Supporting Files */,
@@ -263,9 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA81B4931B4DD94400D96E1E /* ImagesTableViewController.m in Sources */,
 				BA81B45A1B4D955600D96E1E /* AppDelegate.m in Sources */,
 				BA81B4571B4D955600D96E1E /* main.m in Sources */,
-				BA81B4911B4D98A600D96E1E /* ImagesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
