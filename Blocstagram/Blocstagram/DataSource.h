@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DataSourse : NSObject
+@interface DataSource : NSObject
+
++(instancetype) sharedInstance;
+@property (nonatomic, strong, readonly) NSArray *mediaItems;
+
 
 @end
