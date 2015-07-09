@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class User;
+@class DataSource;
 
 @interface Media : NSObject
 
@@ -18,5 +19,7 @@
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, strong, readonly) Media *items;
+
 
 @end
