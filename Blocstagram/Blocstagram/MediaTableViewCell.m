@@ -91,30 +91,38 @@ static NSParagraphStyle *paragraphStyle;
         NSString *baseString = [NSString stringWithFormat:@"%@ %@\n", comment.from.userName, comment.text];
         
         // Make an attributed string, with the "username" bold
+        for (int i = 0; i < self.mediaItem.comments.count; i++) {
+            if (i == 0) {
+                NSMutableParagraphStyle *mutableParagraphStyle = [[NSMutableParagraphStyle alloc]init] ;
+                [mutableParagraphStyle setAlignment:NSTextAlignmentRight];
+                paragraphStyle = mutableParagraphStyle;
+            } else if (i % 2 != 0) {
+                NSMutableParagraphStyle *mutableParagraphStyle = [[NSMutableParagraphStyle alloc]init] ;
+                [mutableParagraphStyle setAlignment:NSTextAlignmentLeft];
+                paragraphStyle = mutableParagraphStyle;
+            } else if (i % 2 == 0) {
+                NSMutableParagraphStyle *mutableParagraphStyle = [[NSMutableParagraphStyle alloc]init] ;
+                [mutableParagraphStyle setAlignment:NSTextAlignmentRight];
+                paragraphStyle = mutableParagraphStyle;
+            }
+        }
         
-        if (comment.text == self.mediaItem.comments.firstObject) {
-              NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : firstCommentColor}];
-            NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
-            [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
-            
-            [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
-            
-            [commentString appendAttributedString:oneCommentString];
-
-        } else {
-        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle}];
-    
+        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : linkColor}];
         NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
         [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
         
-        [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
-        
+        if (comment == self.mediaItem.comments.firstObject) {
+            [oneCommentString addAttribute:NSForegroundColorAttributeName value:firstCommentColor range:usernameRange];
+        } else {
+            [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
+            
+        }
         [commentString appendAttributedString:oneCommentString];
         
-        }
     }
     return commentString;
 }
+
 
 - (CGSize) sizeOfString:(NSAttributedString *)string {
     CGSize maxSize = CGSizeMake(CGRectGetWidth(self.contentView.bounds) - 40, 0.0);
