@@ -12,13 +12,8 @@
 #import "DataSource.h"
 
 @interface Media ()
-@property (nonatomic, strong) Media *items;
 
 @end
 @implementation Media
 
--(Media *) numberOfItems:(NSArray *)mediaItems {
-    Media *items = [DataSource sharedInstance].mediaItems[indexPath.row];
-    return [self items].count
-}
 @end
