@@ -64,6 +64,11 @@
                         for (Media* mediaItem in self.mediaItems) {
                             [self downloadImageForMediaItem:mediaItem];
                         }
+                      
+                        // New Code
+                        [self requestNewItemsWithCompletionHandler]
+                        
+                        // New Code
                         
                     } else {
                         [self populateDataWithParameters:nil completionHandler:nil];
