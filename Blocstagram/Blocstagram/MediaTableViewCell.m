@@ -59,7 +59,6 @@ static NSParagraphStyle *paragraphStyle;
     mutableParagraphStyle.firstLineHeadIndent = 20.0;
     mutableParagraphStyle.tailIndent = -20.0;
     mutableParagraphStyle.paragraphSpacingBefore = 5;
-    
     paragraphStyle = mutableParagraphStyle;
 }
 
