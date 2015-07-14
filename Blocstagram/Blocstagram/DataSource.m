@@ -57,6 +57,8 @@
                     if (storedMediaItems.count > 0) {
                         NSMutableArray *mutableMediaItems = [storedMediaItems mutableCopy];
                         
+                        [self requestNewItemsWithCompletionHandler:nil];
+
                         [self willChangeValueForKey:@"mediaItems"];
                         self.mediaItems = mutableMediaItems;
                         [self didChangeValueForKey:@"mediaItems"];
@@ -66,8 +68,7 @@
                         }
                       
                         // New Code
-                        [self requestNewItemsWithCompletionHandler]
-                        
+
                         // New Code
                         
                     } else {
