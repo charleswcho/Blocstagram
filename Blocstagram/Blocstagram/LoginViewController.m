@@ -28,6 +28,8 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     [self.view addSubview:webView];
     self.webView = webView;
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: @"Back" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed)];
+    [self.navigationItem.leftBarButtonItem setEnabled:NO];
     self.title = NSLocalizedString(@"Login", @"Login");
     
     NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token", [DataSource instagramClientID], [self redirectURI]];
@@ -47,6 +49,12 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     self.webView.delegate = nil;
 }
 
+- (void)backButtonPressed {
+    if (self.webView.canGoBack) {
+        [self.webView goBack];
+    }
+}
+
 /**
  Clears Instagram cookies. This prevents caching the credentials in the cookie jar.
  */
@@ -58,6 +66,17 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
         }
     }
 }
+
+- (void) webViewDidFinishLoad:(UIWebView *)webView {
+    if (self.webView.canGoBack) {
+        self.navigationItem.leftBarButtonItem.enabled = YES;
+        self.navigationItem.leftBarButtonItem.title = @"Back";
+    } else {
+        self.navigationItem.leftBarButtonItem.enabled = NO;
+        self.navigationItem.leftBarButtonItem.title = @"";
+    }
+}
+
 
 - (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSString *urlString = request.URL.absoluteString;
