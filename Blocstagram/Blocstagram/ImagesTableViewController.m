@@ -16,6 +16,8 @@
 
 @interface ImagesTableViewController () <MediaTableViewCellDelegate>
 
+@property (assign) BOOL isScrolling;
+
 @end
 
 @implementation ImagesTableViewController
@@ -34,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.isScrolling = NO;
     [[DataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -58,6 +60,16 @@
 
 // #4
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    [self infiniteScrollIfNecessary];
+    
+}
+
+- (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.isScrolling = YES;
+}
+
+- (void) scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    self.isScrolling = NO;
     [self infiniteScrollIfNecessary];
 }
 
@@ -153,7 +165,8 @@
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
-    if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+    if (mediaItem.downloadState == MediaDownloadStateNeedsImage && !self.isScrolling) {
+        
         [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
     }
 }
