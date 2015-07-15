@@ -182,8 +182,8 @@
     }
 }
 
-- (void) cell:(MediaTableViewCell *)cell didDoubleTapTableViewCell:(UITableViewCell *)tableViewCell {
-    [self refreshControlDidFire:nil];
+- (void) cell:(MediaTableViewCell *)cell didDoubleTapTableViewCell:(Media *)mediaItem {
+    [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
     
   }
 

@@ -126,7 +126,7 @@ static NSParagraphStyle *paragraphStyle;
         self.doubleFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleFingerTapFired:)];
         self.doubleFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
         self.tapGestureRecognizer.delegate = self;
-        [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
+        [self.mediaImageView addGestureRecognizer:self.doubleFingerTapGestureRecognizer];
 
         self.usernameAndCaptionLabel = [[UILabel alloc] init];
         self.usernameAndCaptionLabel.numberOfLines = 0;
@@ -235,7 +235,7 @@ static NSParagraphStyle *paragraphStyle;
 }
 
 - (void) doubleFingerTapFired:(UITapGestureRecognizer *)sender {
-    [self.delegate cell:self didDoubleTapTableViewCell:self.layoutCell];
+    [self.delegate cell:self didDoubleTapTableViewCell:self.mediaItem];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
