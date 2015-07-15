@@ -56,6 +56,19 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+    
+    UIButton *shareMedia = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    [shareMedia setTitle:@"Share" forState:UIControlStateNormal];
+    
+    [shareMedia sizeToFit];
+    
+    float X_Co = (self.view.frame.size.width - shareMedia.frame.size.width) - 28;
+    [shareMedia setFrame:CGRectMake(X_Co, 30.0, shareMedia.frame.size.width, shareMedia.frame.size.height)];
+    
+    [shareMedia addTarget:self action:@selector(shareMediaPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:shareMedia];
 }
 
 #pragma mark - Gesture Recognizers
@@ -81,6 +94,24 @@
         // #9
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     }
+}
+
+- (void) shareMediaPressed {
+    
+    NSArray *objectsToShare = @[self.media.image];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeAddToReadingList,
+                                   UIActivityTypePostToFlickr,
+                                   UIActivityTypePostToVimeo];
+    
+    activityVC.excludedActivityTypes = excludeActivities;
+  
+    [self presentViewController:activityVC animated:YES completion:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
