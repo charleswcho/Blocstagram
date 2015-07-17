@@ -30,6 +30,7 @@
 		BAC30D951B588F5A00412D08 /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC30D941B588F5A00412D08 /* ComposeCommentView.m */; };
 		BAC30D981B597E5D00412D08 /* CameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC30D971B597E5D00412D08 /* CameraToolbar.m */; };
 		BAC30D9B1B59818400412D08 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC30D9A1B59818400412D08 /* CameraViewController.m */; };
+		BAC30D9E1B59A18100412D08 /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC30D9D1B59A18100412D08 /* UIImage+ImageUtilities.m */; };
 		BAD52D871B4DEED400AF7076 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD52D861B4DEED400AF7076 /* User.m */; };
 		BAD52D8A1B4DEF4E00AF7076 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD52D891B4DEF4E00AF7076 /* Media.m */; };
 		BAD52D8D1B4DEFE300AF7076 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD52D8C1B4DEFE300AF7076 /* Comment.m */; };
@@ -86,6 +87,8 @@
 		BAC30D971B597E5D00412D08 /* CameraToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraToolbar.m; sourceTree = "<group>"; };
 		BAC30D991B59818400412D08 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		BAC30D9A1B59818400412D08 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		BAC30D9C1B59A18100412D08 /* UIImage+ImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageUtilities.h"; sourceTree = "<group>"; };
+		BAC30D9D1B59A18100412D08 /* UIImage+ImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtilities.m"; sourceTree = "<group>"; };
 		BAD52D851B4DEED400AF7076 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		BAD52D861B4DEED400AF7076 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		BAD52D881B4DEF4E00AF7076 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				BAC30D941B588F5A00412D08 /* ComposeCommentView.m */,
 				BAC30D961B597E5D00412D08 /* CameraToolbar.h */,
 				BAC30D971B597E5D00412D08 /* CameraToolbar.m */,
+				BAC30D9C1B59A18100412D08 /* UIImage+ImageUtilities.h */,
+				BAC30D9D1B59A18100412D08 /* UIImage+ImageUtilities.m */,
 				BAC30D901B58475900412D08 /* LikeButton.h */,
 				BAC30D911B58475900412D08 /* LikeButton.m */,
 				BAD52D881B4DEF4E00AF7076 /* Media.h */,
@@ -396,6 +401,7 @@
 				BA81B45A1B4D955600D96E1E /* AppDelegate.m in Sources */,
 				BAC30D951B588F5A00412D08 /* ComposeCommentView.m in Sources */,
 				BA81B4571B4D955600D96E1E /* main.m in Sources */,
+				BAC30D9E1B59A18100412D08 /* UIImage+ImageUtilities.m in Sources */,
 				BA81B4911B4D98A600D96E1E /* ImagesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
