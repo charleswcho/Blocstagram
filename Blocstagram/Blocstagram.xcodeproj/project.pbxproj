@@ -34,6 +34,7 @@
 		BAC30DA11B59F55300412D08 /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC30DA01B59F55300412D08 /* CropBox.m */; };
 		BAC30DA41B59F7DB00412D08 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC30DA31B59F7DB00412D08 /* CropImageViewController.m */; };
 		BAC30DA71B59FFC300412D08 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC30DA61B59FFC300412D08 /* ImageLibraryViewController.m */; };
+		BAC30DAA1B5ADEF200412D08 /* MediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC30DA91B5ADEF200412D08 /* MediaFullScreenAnimator.m */; };
 		BAD52D871B4DEED400AF7076 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD52D861B4DEED400AF7076 /* User.m */; };
 		BAD52D8A1B4DEF4E00AF7076 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD52D891B4DEF4E00AF7076 /* Media.m */; };
 		BAD52D8D1B4DEFE300AF7076 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD52D8C1B4DEFE300AF7076 /* Comment.m */; };
@@ -98,6 +99,8 @@
 		BAC30DA31B59F7DB00412D08 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
 		BAC30DA51B59FFC300412D08 /* ImageLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLibraryViewController.h; sourceTree = "<group>"; };
 		BAC30DA61B59FFC300412D08 /* ImageLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLibraryViewController.m; sourceTree = "<group>"; };
+		BAC30DA81B5ADEF200412D08 /* MediaFullScreenAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenAnimator.h; sourceTree = "<group>"; };
+		BAC30DA91B5ADEF200412D08 /* MediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenAnimator.m; sourceTree = "<group>"; };
 		BAD52D851B4DEED400AF7076 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		BAD52D861B4DEED400AF7076 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		BAD52D881B4DEF4E00AF7076 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 				BAC30D9A1B59818400412D08 /* CameraViewController.m */,
 				BAC30DA51B59FFC300412D08 /* ImageLibraryViewController.h */,
 				BAC30DA61B59FFC300412D08 /* ImageLibraryViewController.m */,
+				BAC30DA81B5ADEF200412D08 /* MediaFullScreenAnimator.h */,
+				BAC30DA91B5ADEF200412D08 /* MediaFullScreenAnimator.m */,
 				BAD52D941B4EE8B000AF7076 /* MediaTableViewCell.h */,
 				BAD52D951B4EE8B000AF7076 /* MediaTableViewCell.m */,
 				BAC30D8D1B58428000412D08 /* CircleSpinnerView.h */,
@@ -416,6 +421,7 @@
 				BAD52D8A1B4DEF4E00AF7076 /* Media.m in Sources */,
 				BAD52DD11B533A8C00AF7076 /* LoginViewController.m in Sources */,
 				BAC30D921B58475900412D08 /* LikeButton.m in Sources */,
+				BAC30DAA1B5ADEF200412D08 /* MediaFullScreenAnimator.m in Sources */,
 				BA81B45A1B4D955600D96E1E /* AppDelegate.m in Sources */,
 				BAC30D951B588F5A00412D08 /* ComposeCommentView.m in Sources */,
 				BA81B4571B4D955600D96E1E /* main.m in Sources */,
