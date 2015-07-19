@@ -7,6 +7,15 @@
 //
 
 #import "UIImage+ImageUtilities.h"
+#import "CropBox.h"
+#import "CameraViewController.h"
+
+@interface UIImage ()
+
+@property (nonatomic, strong) CropBox *cropBox;
+@property (nonatomic, strong) CameraViewController *image;
+
+@end
 
 @implementation UIImage (ImageUtilities)
 
@@ -141,6 +150,19 @@
     return image;
 }
 
+- (UIImage *) imageByScalingToSize:(CGSize)size andCroppingWithRect:(CGRect)rect {
+    
+    CameraViewController *image = [[CameraViewController alloc] init];
+    CGRect gridRect = self.cropBox.frame;
+    
+    CGRect cropRect = gridRect;
+    cropRect.origin.x = (CGRectGetMinX(gridRect) + (image.size.width - CGRectGetWidth(gridRect)) / 2);
+    
+    
+    [image imageCroppedToRect:cropRect];
+    
+    return nil;
+}
 
 
 
