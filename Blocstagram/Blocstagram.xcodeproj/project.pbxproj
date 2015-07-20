@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AB276E924B8F5A88E514219C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D256452F1C0B178132B132C /* libPods.a */; };
 		BA5FEEC41B5C909700B19ED0 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5FEEC31B5C909700B19ED0 /* PostToInstagramViewController.m */; };
+		BA5FEEC61B5CAED400B19ED0 /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5FEEC51B5CAED400B19ED0 /* UserTests.m */; };
 		BA81B4571B4D955600D96E1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA81B4561B4D955600D96E1E /* main.m */; };
 		BA81B45A1B4D955600D96E1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA81B4591B4D955600D96E1E /* AppDelegate.m */; };
 		BA81B4621B4D955600D96E1E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA81B4611B4D955600D96E1E /* Images.xcassets */; };
@@ -60,6 +61,7 @@
 		87C8C2827913967C79EC2A05 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BA5FEEC21B5C909700B19ED0 /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
 		BA5FEEC31B5C909700B19ED0 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
+		BA5FEEC51B5CAED400B19ED0 /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserTests.m; path = BlocstagramTests/UserTests.m; sourceTree = "<group>"; };
 		BA81B4511B4D955600D96E1E /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA81B4551B4D955600D96E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA81B4561B4D955600D96E1E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		BA81B4481B4D955600D96E1E = {
 			isa = PBXGroup;
 			children = (
+				BA5FEEC51B5CAED400B19ED0 /* UserTests.m */,
 				BA81B4531B4D955600D96E1E /* Blocstagram */,
 				BA81B46D1B4D955600D96E1E /* BlocstagramTests */,
 				BA81B4521B4D955600D96E1E /* Products */,
@@ -440,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA5FEEC61B5CAED400B19ED0 /* UserTests.m in Sources */,
 				BA81B4711B4D955600D96E1E /* BlocstagramTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
