@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB276E924B8F5A88E514219C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D256452F1C0B178132B132C /* libPods.a */; };
+		BA5FEEC41B5C909700B19ED0 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5FEEC31B5C909700B19ED0 /* PostToInstagramViewController.m */; };
 		BA81B4571B4D955600D96E1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA81B4561B4D955600D96E1E /* main.m */; };
 		BA81B45A1B4D955600D96E1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA81B4591B4D955600D96E1E /* AppDelegate.m */; };
 		BA81B4621B4D955600D96E1E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA81B4611B4D955600D96E1E /* Images.xcassets */; };
@@ -57,6 +58,8 @@
 		52CC8AC05122592D96987A88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5D256452F1C0B178132B132C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		87C8C2827913967C79EC2A05 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BA5FEEC21B5C909700B19ED0 /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
+		BA5FEEC31B5C909700B19ED0 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
 		BA81B4511B4D955600D96E1E /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA81B4551B4D955600D96E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA81B4561B4D955600D96E1E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				BAC30D9A1B59818400412D08 /* CameraViewController.m */,
 				BAC30DA51B59FFC300412D08 /* ImageLibraryViewController.h */,
 				BAC30DA61B59FFC300412D08 /* ImageLibraryViewController.m */,
+				BA5FEEC21B5C909700B19ED0 /* PostToInstagramViewController.h */,
+				BA5FEEC31B5C909700B19ED0 /* PostToInstagramViewController.m */,
 				BAC30DA81B5ADEF200412D08 /* MediaFullScreenAnimator.h */,
 				BAC30DA91B5ADEF200412D08 /* MediaFullScreenAnimator.m */,
 				BAD52D941B4EE8B000AF7076 /* MediaTableViewCell.h */,
@@ -421,6 +426,7 @@
 				BAD52D8A1B4DEF4E00AF7076 /* Media.m in Sources */,
 				BAD52DD11B533A8C00AF7076 /* LoginViewController.m in Sources */,
 				BAC30D921B58475900412D08 /* LikeButton.m in Sources */,
+				BA5FEEC41B5C909700B19ED0 /* PostToInstagramViewController.m in Sources */,
 				BAC30DAA1B5ADEF200412D08 /* MediaFullScreenAnimator.m in Sources */,
 				BA81B45A1B4D955600D96E1E /* AppDelegate.m in Sources */,
 				BAC30D951B588F5A00412D08 /* ComposeCommentView.m in Sources */,
