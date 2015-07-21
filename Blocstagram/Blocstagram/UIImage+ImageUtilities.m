@@ -152,16 +152,19 @@
 
 - (UIImage *) imageByScalingToSize:(CGSize)size andCroppingWithRect:(CGRect)rect {
     
-    CameraViewController *image = [[CameraViewController alloc] init];
-    CGRect gridRect = self.cropBox.frame;
-    
-    CGRect cropRect = gridRect;
-    cropRect.origin.x = (CGRectGetMinX(gridRect) + (image.size.width - CGRectGetWidth(gridRect)) / 2);
-    
-    
-    [image imageCroppedToRect:cropRect];
-    
-    return nil;
+    UIImage *newImage = [self imageResizedToMatchAspectRatioOfSize:size];
+    newImage = [newImage imageCroppedToRect:rect];
+    return newImage;
+//    CameraViewController *image = [[CameraViewController alloc] init];
+//    CGRect gridRect = self.cropBox.frame;
+//    
+//    CGRect cropRect = gridRect;
+//    cropRect.origin.x = (CGRectGetMinX(gridRect) + (image.size.width - CGRectGetWidth(gridRect)) / 2);
+//    
+//    
+//    [image imageCroppedToRect:cropRect];
+//    
+//    return nil;
 }
 
 

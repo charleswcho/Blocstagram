@@ -21,13 +21,16 @@
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
 @property (nonatomic, strong) AVCaptureStillImageOutput *stillImageOutput;
 
+@property (nonatomic, strong) NSArray *horizontalLines;
+@property (nonatomic, strong) NSArray *verticalLines;
 @property (nonatomic, strong) UIToolbar *topView;
 @property (nonatomic, strong) UIToolbar *bottomView;
 
 @property (nonatomic, strong) CropBox *cropBox;
 @property (nonatomic, strong) CameraToolbar *cameraToolbar;
-@property (nonatomic, strong) UIAlertController *alertAccessDenied;
 @property (nonatomic, strong) UIAlertController *alertVC;
+
+- (void) alertAccessDenied;
 
 @end
 
@@ -212,14 +215,29 @@
             
             // #11
             [self.image imageWithFixedOrientation];
-            [self.image imageResizedToMatchAspectRatioOfSize:self.captureVideoPreviewLayer.bounds.size];
+            //[self.image imageResizedToMatchAspectRatioOfSize:self.captureVideoPreviewLayer.bounds.size];
             
             // #12
             
+            UIView *leftLine = self.verticalLines.firstObject;
+            UIView *rightLine = self.verticalLines.lastObject;
+            UIView *topLine = self.horizontalLines.firstObject;
+            UIView *bottomLine = self.horizontalLines.lastObject;
+            
+            CGRect gridRect = CGRectMake(CGRectGetMinX(leftLine.frame),
+                                         CGRectGetMinY(topLine.frame),
+                                         CGRectGetMaxX(rightLine.frame) - CGRectGetMinX(leftLine.frame),
+                                         CGRectGetMinY(bottomLine.frame) - CGRectGetMinY(topLine.frame));
+            
+            CGRect cropRect = gridRect;
+            cropRect.origin.x = (CGRectGetMinX(gridRect) + (self.image.size.width - CGRectGetWidth(gridRect)) / 2);
+            
+            //self.image = [self.image imageCroppedToRect:cropRect];
+            self.image = [self.image imageByScalingToSize:self.captureVideoPreviewLayer.bounds.size andCroppingWithRect:cropRect];
             
             // #13
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate cameraViewController:self didCompleteWithImage:image];
+                [self.delegate cameraViewController:self didCompleteWithImage:self.image];
             });
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -257,16 +275,17 @@
 
 }
 
-- (UIAlertController *) alertAccessDenied {
+- (void) alertAccessDenied {
     
-    self.alertAccessDenied = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Camera Permission Denied", @"camera permission denied title")
+    UIAlertController *alertAccessDenied = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Camera Permission Denied", @"camera permission denied title")
                                                                      message:NSLocalizedString(@"This app doesn't have permission to use the camera; please update your privacy settings.", @"camera permission denied recovery suggestion")
                                                               preferredStyle:UIAlertControllerStyleAlert];
-    [self.alertAccessDenied addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK button") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    [alertAccessDenied addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK button") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         [self.delegate cameraViewController:self didCompleteWithImage:nil];
     }]];
     
-    [self presentViewController:self.alertAccessDenied animated:YES completion:nil];
+    [self presentViewController:alertAccessDenied animated:YES completion:nil];
+    
 }
 
 
