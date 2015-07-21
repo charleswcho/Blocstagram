@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSArray *horizontalLines;
 @property (nonatomic, strong) NSArray *verticalLines;
+@property (nonatomic, strong) UIToolbar *topView;
+@property (nonatomic, strong) UIToolbar *bottomView;
 
 @end
 
@@ -23,10 +25,23 @@
     if (self) {
         self.userInteractionEnabled = NO;
         
+        self.topView = [UIToolbar new];
+        self.bottomView = [UIToolbar new];
+        
+        UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+        
+        self.topView.barTintColor = whiteBG;
+        self.bottomView.barTintColor = whiteBG;
+        self.topView.alpha = 0.5;
+        self.bottomView.alpha = 0.5;
+        
         NSArray *lines = [self.horizontalLines arrayByAddingObjectsFromArray:self.verticalLines];
         for (UIView *lineView in lines) {
             [self addSubview:lineView];
         }
+        [self addSubview:_topView];
+        [self addSubview:_bottomView];
+
     }
     return self;
 }
@@ -63,6 +78,12 @@
     [super layoutSubviews];
     
     CGFloat width = CGRectGetWidth(self.frame);
+    
+    self.topView.frame = CGRectMake(0, -88, width, 88);
+    
+    self.bottomView.frame = CGRectMake(0, self.frame.size.height, width, 146);
+    
+
     CGFloat thirdOfWidth = width / 3;
     
     for (int i = 0; i < 4; i++) {
