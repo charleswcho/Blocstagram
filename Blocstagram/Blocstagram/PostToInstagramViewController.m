@@ -212,6 +212,17 @@
         }
     }];
     
+    // Mono filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *monoFilter = [CIFilter filterWithName:@"CIPhotoEffectMono"];
+        
+        if (monoFilter) {
+            [monoFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:monoFilter.outputImage withFilterTitle:NSLocalizedString(@"Mono", @"Mono Filter")];
+        }
+    }];
+
     // Boom filter
     
     [self.photoFilterOperationQueue addOperationWithBlock:^{
@@ -253,6 +264,26 @@
         if (moodyFilter) {
             [moodyFilter setValue:sourceCIImage forKey:kCIInputImageKey];
             [self addCIImageToCollectionView:moodyFilter.outputImage withFilterTitle:NSLocalizedString(@"Moody", @"Moody Filter")];
+        }
+    }];
+    
+    // Instant Light Tunnel filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *instantFilter = [CIFilter filterWithName:@"CIPhotoEffectInstant"];
+        CIFilter *tiltFilter = [CIFilter filterWithName:@"CIStraightenFilter"];
+        
+        if (instantFilter) {
+            [instantFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            
+            CIImage *result = instantFilter.outputImage;
+            
+            if (tiltFilter) {
+                [tiltFilter setValue:result forKeyPath:kCIInputImageKey];
+                [tiltFilter setValue:@3.15 forKeyPath:kCIInputAngleKey];
+                result = tiltFilter.outputImage;            }
+            
+            [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Instant tilt", @"Instant tilt Filter")];
         }
     }];
     
