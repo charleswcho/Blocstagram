@@ -7,6 +7,7 @@
 //
 
 #import "PostToInstagramViewController.h"
+#import "PostToInstagramCollectionViewLayout.h"
 
 @interface PostToInstagramViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) UIBarButtonItem *sendBarButton;
 
 @property (nonatomic, strong) UIDocumentInteractionController *documentController;
+@property (nonatomic, strong) PostToInstagramCollectionViewLayout *layout;
 
 @end
 
@@ -37,13 +39,11 @@
         
         self.photoFilterOperationQueue = [[NSOperationQueue alloc] init];
         
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.itemSize = CGSizeMake(44, 64);
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        flowLayout.minimumInteritemSpacing = 10;
-        flowLayout.minimumLineSpacing = 10;
+        //
+        self.layout = [[PostToInstagramCollectionViewLayout alloc] init];
+        //
         
-        self.filterCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        self.filterCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.layout];
         self.filterCollectionView.dataSource = self;
         self.filterCollectionView.delegate = self;
         self.filterCollectionView.showsHorizontalScrollIndicator = NO;
@@ -126,8 +126,7 @@
     
     self.filterCollectionView.frame = CGRectMake(0, filterViewYOrigin, CGRectGetWidth(self.view.frame), filterViewHeight);
     
-    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.filterCollectionView.collectionViewLayout;
-    flowLayout.itemSize = CGSizeMake(CGRectGetHeight(self.filterCollectionView.frame) - 20, CGRectGetHeight(self.filterCollectionView.frame));
+    _layout.itemSize = CGSizeMake(CGRectGetHeight(self.filterCollectionView.frame) - 20, CGRectGetHeight(self.filterCollectionView.frame));
 }
 
 #pragma mark - UICollectionView delegate and data source
@@ -145,8 +144,7 @@
     UIImageView *thumbnail = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:labelTag];
     
-    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.filterCollectionView.collectionViewLayout;
-    CGFloat thumbnailEdgeSize = flowLayout.itemSize.width;
+    CGFloat thumbnailEdgeSize = _layout.itemSize.width;
     
     if (!thumbnail) {
         thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, thumbnailEdgeSize, thumbnailEdgeSize)];

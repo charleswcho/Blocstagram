@@ -1,5 +1,5 @@
 //
-//  PostToInstragramCollectionViewLayout.h
+//  PostToInstagramCollectionViewLayout.h
 //  Blocstagram
 //
 //  Created by Charles Wesley Cho on 7/21/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PostToInstragramCollectionViewLayout : UICollectionView
+@interface PostToInstagramCollectionViewLayout : UICollectionViewFlowLayout
 
 @end
