@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import "Media.h"
+#import "User.h"
+#import "Comment.h"
 
 @interface MediaTests : XCTestCase
 
@@ -27,26 +29,36 @@
 
 - (void)testThatInitializationWorks
 {
+
     NSDictionary *sourceDictionary = @{@"id": @"8675309",
-                                       //@"user": @"Mr. Ugly",
-                                       //@"image": @"www.mugshot.jpg",
-                                        @"caption" : @"",
-                                       //@"comments" : @{@"yellow guy":@1,
-                                       //                @"Much hunger":@2,
-                                       //                @"Very fat":@3},
-                                                      
-                                       @"user_has_liked" : @YES
+                                       @"user": @{@"id": @"8675309",
+                                                  @"username" : @"d'oh",
+                                                  @"full_name" : @"Homer Simpson",
+                                                  @"profile_picture" : @"http://www.example.com/example.jpg"},
+                                       @"images" : @{@"standard_resolution" : @{@"url" : @"www.testurl.com"}},
+                                       @"downloadState" : @1,
+                                       @"caption" : @"",
+                                       //@"comment" : @{@"data" : @{@"idNumber": @"8675602",
+                                       //                               @"from" : @"d'oh",
+                                       //                               @"text" : @"Owww"}},
+                                       @"user_has_liked" : @1
                                        };
     
     Media *testMedia = [[Media alloc] initWithDictionary:sourceDictionary];
     
     XCTAssertEqualObjects(testMedia.idNumber, sourceDictionary[@"id"], @"The ID number should be equal");
-    //XCTAssertEqualObjects(testMedia.user, sourceDictionary[@"user"], @"The user should be equal");
-    //XCTAssertEqualObjects(testMedia.mediaURL, [NSURL URLWithString:sourceDictionary[@"image"]] @"The image should be equal");
-    XCTAssertEqualObjects(testMedia.caption, sourceDictionary[@"caption"], @"The caption should be equal");
-    //XCTAssertEqualObjects(testMedia.comments, sourceDictionary[@"comments"][@"data"], @"The comment should be equal");
+    XCTAssertEqualObjects(testMedia.user.userName, sourceDictionary[@"user"][@"username"], @"The user should be equal");
+    XCTAssertEqualObjects(testMedia.user.fullName, sourceDictionary[@"user"][@"full_name"], @"The user should be equal");
     
-    XCTAssertEqualObjects(testMedia.likeState, sourceDictionary[@"user_has_liked"], @"The comment should be equal");
+    XCTAssertEqualObjects(testMedia.mediaURL, [NSURL URLWithString:sourceDictionary[@"images"][@"standard_resolution"][@"url"]], @"The image should be equal");
+    
+    XCTAssertEqual(testMedia.downloadState, MediaDownloadStateNeedsImage, @"The downloadState should be equal");
+
+    
+    XCTAssertEqualObjects(testMedia.caption, sourceDictionary[@"caption"], @"The caption should be equal");
+    //XCTAssertEqualObjects(testMedia.comments[0], sourceDictionary[@"comments"][@"data"], @"The comment should be equal");
+    
+    XCTAssertEqual(testMedia.likeState, LikeStateLiked, @"The comment should be equal");
 
 
 }
